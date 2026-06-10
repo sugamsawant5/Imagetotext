@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OcrVision – Free AI-powered Image to Text converter. Upload any image and extract text instantly using advanced OCR technology." />
+  <title>OcrVision – Image to Text Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background particles -->
+  <div class="bg-particles" id="bgParticles"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="8" fill="url(#logoGrad)"/>
+            <path d="M7 8h14M7 12h10M7 16h12M7 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="21" cy="19" r="5" fill="#0ea5e9" stroke="white" stroke-width="1.5"/>
+            <path d="M19 19l1.5 1.5L23 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7c3aed"/>
+                <stop offset="1" stop-color="#3b82f6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">OcrVision</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#converter" class="nav-btn">Try Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by Tesseract OCR Engine
+      </div>
+      <h1 class="hero-title">
+        Extract Text from<br/>
+        <span class="gradient-text">Any Image Instantly</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload photos, screenshots, or scanned documents and convert them to editable text in seconds. 100% free, runs entirely in your browser.
+      </p>
+      <div class="hero-cta">
+        <a href="#converter" class="btn-primary" id="heroCtaBtn">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Start Converting
+        </a>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">100+</span>
+            <span class="stat-label">Languages</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">Free</span>
+            <span class="stat-label">Always</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">Private</span>
+            <span class="stat-label">No Upload</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <svg width="16" height="16" fill="#10b981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#10b981" stroke-width="2" stroke-linecap="round"/></svg>
+        Text extracted!
+      </div>
+      <div class="floating-card card-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z" stroke="#a78bfa" stroke-width="2"/><polyline points="13 2 13 9 20 9" stroke="#a78bfa" stroke-width="2"/></svg>
+        OCR Processing...
+      </div>
+      <div class="hero-mockup">
+        <div class="mockup-header">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-img-area">
+            <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#6d28d9" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="#6d28d9"/><path d="M21 15l-5-5L5 21" stroke="#6d28d9" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>Your Image</span>
+          </div>
+          <div class="mockup-arrow">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="mockup-text-area">
+            <div class="mockup-line" style="width:90%"></div>
+            <div class="mockup-line" style="width:70%"></div>
+            <div class="mockup-line" style="width:85%"></div>
+            <div class="mockup-line" style="width:60%"></div>
+            <div class="mockup-line" style="width:75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2 class="section-title">Everything you need for OCR</h2>
+        <p class="section-subtitle">Powerful image recognition packed into a simple, beautiful interface</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" id="feat-1">
+          <div class="feature-icon" style="--color:#7c3aed">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Multi-Format Support</h3>
+          <p>Works with JPG, PNG, WEBP, GIF, BMP and more. Handles photos, screenshots, and scanned documents effortlessly.</p>
+        </div>
+        <div class="feature-card" id="feat-2">
+          <div class="feature-icon" style="--color:#0ea5e9">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Advanced OCR engine processes images instantly in your browser. No waiting for server uploads — results in seconds.</p>
+        </div>
+        <div class="feature-card" id="feat-3">
+          <div class="feature-icon" style="--color:#10b981">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>100% Private</h3>
+          <p>Your images never leave your device. All processing happens locally in the browser using WebAssembly. Zero data collected.</p>
+        </div>
+        <div class="feature-card" id="feat-4">
+          <div class="feature-icon" style="--color:#f59e0b">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>100+ Languages</h3>
+          <p>Extract text from English, Hindi, Spanish, French, Chinese, Arabic, and many more languages with high accuracy.</p>
+        </div>
+        <div class="feature-card" id="feat-5">
+          <div class="feature-icon" style="--color:#ec4899">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>One-Click Copy</h3>
+          <p>Copy all extracted text to clipboard instantly, or download it as a .txt file for future reference.</p>
+        </div>
+        <div class="feature-card" id="feat-6">
+          <div class="feature-icon" style="--color:#6366f1">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Image Preview</h3>
+          <p>View your uploaded image alongside the extracted text. Easily zoom and compare for accuracy verification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">Three simple steps</h2>
+      </div>
+      <div class="steps-container">
+        <div class="step" id="step-1">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Upload Image</h3>
+          <p>Drag & drop or click to upload any image file from your device</p>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" fill="none" viewBox="0 0 60 20"><path d="M0 10h55M45 3l12 7-12 7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="step" id="step-2">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>OCR Processing</h3>
+          <p>Our AI-powered engine scans and recognizes all text in the image</p>
+        </div>
+        <div class="step-connector">
+          <svg width="60" height="20" fill="none" viewBox="0 0 60 20"><path d="M0 10h55M45 3l12 7-12 7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="step" id="step-3">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Copy & Use</h3>
+          <p>Get your editable text and copy or download it instantly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Converter Section -->
+  <section class="converter-section" id="converter">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">OCR Tool</span>
+        <h2 class="section-title">Convert Your Image Now</h2>
+        <p class="section-subtitle">Drag & drop an image or click to browse</p>
+      </div>
+
+      <!-- Settings Bar -->
+      <div class="settings-bar">
+        <div class="setting-group">
+          <label for="languageSelect">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Language
+          </label>
+          <select id="languageSelect" class="setting-select">
+            <option value="eng">English</option>
+            <option value="hin">Hindi</option>
+            <option value="spa">Spanish</option>
+            <option value="fra">French</option>
+            <option value="deu">German</option>
+            <option value="chi_sim">Chinese (Simplified)</option>
+            <option value="chi_tra">Chinese (Traditional)</option>
+            <option value="jpn">Japanese</option>
+            <option value="kor">Korean</option>
+            <option value="ara">Arabic</option>
+            <option value="por">Portuguese</option>
+            <option value="rus">Russian</option>
+            <option value="ita">Italian</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="converter-layout">
+        <!-- Upload Panel -->
+        <div class="panel upload-panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Image
+            </span>
+            <button class="panel-action" id="clearImageBtn" style="display:none">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Clear
+            </button>
+          </div>
+
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" hidden />
+            <div class="drop-zone-content" id="dropZoneContent">
+              <div class="drop-icon">
+                <svg width="56" height="56" fill="none" viewBox="0 0 24 24">
+                  <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke="url(#uploadGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs>
+                    <linearGradient id="uploadGrad" x1="7" y1="6" x2="17" y2="22" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#7c3aed"/>
+                      <stop offset="1" stop-color="#3b82f6"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <p class="drop-title">Drop your image here</p>
+              <p class="drop-sub">or <span class="drop-link" id="browseLink">browse files</span></p>
+              <p class="drop-formats">Supports: JPG, PNG, WEBP, GIF, BMP</p>
+            </div>
+            <div class="image-preview-wrapper" id="imagePreviewWrapper" style="display:none">
+              <img id="imagePreview" src="" alt="Preview" />
+            </div>
+          </div>
+
+          <button class="convert-btn" id="convertBtn" disabled>
+            <span class="btn-text">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Extract Text
+            </span>
+            <span class="btn-loading" style="display:none">
+              <span class="spinner"></span>
+              Processing...
+            </span>
+          </button>
+
+          <!-- Progress Bar -->
+          <div class="progress-container" id="progressContainer" style="display:none">
+            <div class="progress-info">
+              <span id="progressStatus">Initializing...</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="panel output-panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Extracted Text
+            </span>
+            <div class="output-actions">
+              <button class="panel-action" id="copyBtn" disabled title="Copy to clipboard">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Copy
+              </button>
+              <button class="panel-action" id="downloadBtn" disabled title="Download as .txt">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Download
+              </button>
+              <button class="panel-action" id="clearTextBtn" disabled title="Clear output">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <div class="output-area-wrapper">
+            <div class="output-placeholder" id="outputPlaceholder">
+              <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="#4b5563" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <p>Extracted text will appear here</p>
+              <span>Upload an image and click "Extract Text"</span>
+            </div>
+            <textarea id="outputText" class="output-textarea" placeholder="Extracted text appears here..." readonly style="display:none"></textarea>
+          </div>
+
+          <!-- Confidence display -->
+          <div class="output-footer" id="outputFooter" style="display:none">
+            <div class="confidence-info">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span id="wordCount">0 words</span>
+              <span class="separator">•</span>
+              <span id="charCount">0 characters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span id="toastMessage">Copied!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo-icon" style="width:32px;height:32px">
+          <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="8" fill="url(#footerLogoGrad)"/>
+            <path d="M7 8h14M7 12h10M7 16h12M7 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7c3aed"/>
+                <stop offset="1" stop-color="#3b82f6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span>OcrVision</span>
+      </div>
+      <p class="footer-text">Built with ❤️ using Tesseract.js — Open source OCR for the web.</p>
+      <p class="footer-copy">© 2025 OcrVision. Your images stay on your device.</p>
+    </div>
+  </footer>
+
+  <!-- Tesseract.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
